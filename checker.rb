@@ -1,5 +1,5 @@
 
-input = File.readlines('example.txt').map { |line| line.split.map(&:to_i) }
+input = File.readlines(ARGV[0]).map { |line| line.split.map(&:to_i) }
 
 
 
