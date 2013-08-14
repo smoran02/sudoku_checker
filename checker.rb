@@ -23,17 +23,21 @@ end
 
 def valid_boxes?(puzzle)
 	a = []
-	puzzle.each do |row|
-		a << row.each_slice(3).to_a[0]
+	3.times do |columns|
+	  puzzle.each do |row|
+		  a << row.each_slice(3).to_a[columns]
+	  end
 	end
-	print a
+	a.each_slice(3).each do |box|
+		return false unless box.join.split(//).map { |s| s.to_i }.sort == (1..9).to_a
+	end
+	return true
 end
 
 def valid_puzzle?(puzzle)
 	return valid_rows?(puzzle) && 
-		 valid_columns?(puzzle) # && 
-		 # valid_boxes?(puzzle)
+		 valid_columns?(puzzle) && 
+		 valid_boxes?(puzzle)
 end
 
 puts valid_puzzle?(input)
-valid_boxes?(input)
