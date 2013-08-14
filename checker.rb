@@ -29,7 +29,7 @@ def valid_boxes?(puzzle)
 	  end
 	end
 	a.each_slice(3).each do |box|
-		return false unless box.join.split(//).map { |s| s.to_i }.sort == (1..9).to_a
+		return false unless box.join.split(//).map(&:to_i).sort == (1..9).to_a
 	end
 	return true
 end
