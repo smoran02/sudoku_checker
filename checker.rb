@@ -1,8 +1,6 @@
 
 input = File.readlines(ARGV[0]).map { |line| line.split.map(&:to_i) }
 
-
-
 def valid_rows?(puzzle)
 	puzzle.each do |row|
 		return false unless row.sort == (1..9).to_a
