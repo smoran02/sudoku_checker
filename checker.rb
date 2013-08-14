@@ -21,8 +21,13 @@ def valid_columns?(puzzle)
 	return true
 end
 
-# def valid_boxes?(puzzle)
-# end
+def valid_boxes?(puzzle)
+	a = []
+	puzzle.each do |row|
+		a << row.each_slice(3).to_a[0]
+	end
+	print a
+end
 
 def valid_puzzle?(puzzle)
 	return valid_rows?(puzzle) && 
@@ -31,3 +36,4 @@ def valid_puzzle?(puzzle)
 end
 
 puts valid_puzzle?(input)
+valid_boxes?(input)
